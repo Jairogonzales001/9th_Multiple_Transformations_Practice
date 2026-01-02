@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Transformations Practice</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Multiple Transformations Practice</h1>
+            <p class="subtitle">Compositions and Sequences of Transformations</p>
+        </header>
+
+        <!-- Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <span class="progress-text" id="progressText">0%</span>
+        </div>
+
+        <!-- Phase Navigation -->
+        <div class="phase-nav">
+            <div class="phase-dot active" data-phase="1">1</div>
+            <div class="phase-dot" data-phase="2">2</div>
+            <div class="phase-dot" data-phase="3">3</div>
+            <div class="phase-dot" data-phase="4">4</div>
+            <div class="phase-dot" data-phase="5">5</div>
+        </div>
+
+        <!-- Phase 1: Introduction -->
+        <div class="content-card active" id="phase1">
+            <div class="phase-header">
+                <span class="phase-number">Phase 1</span>
+                <h2>Introduction</h2>
+            </div>
+
+            <div class="objectives-box">
+                <h3>Learning Objectives</h3>
+                <ul>
+                    <li>Perform complex sequences of transformations</li>
+                    <li>Predict the final image after multiple transformations</li>
+                    <li>Compare different transformation sequences with the same result</li>
+                    <li>Apply transformations to solve geometric problems</li>
+                </ul>
+            </div>
+
+            <div class="intro-content">
+                <h3>What Are Composite Transformations?</h3>
+                <p>A <strong>composition of transformations</strong> (or composite transformation) is when two or more transformations are performed one after the other. The result of the first transformation becomes the input for the second.</p>
+
+                <div class="key-concepts">
+                    <h3>Important Concepts</h3>
+                    <div class="concept-grid">
+                        <div class="concept-item">
+                            <h4>Order Matters!</h4>
+                            <p>Different orders can give different results</p>
+                            <small>Rotate then translate ≠ Translate then rotate</small>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Glide Reflection</h4>
+                            <p>Translation + Reflection (parallel)</p>
+                            <small>Common in nature: footprints!</small>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Notation</h4>
+                            <p>T ∘ R means "R then T"</p>
+                            <small>Read right to left</small>
+                        </div>
+                        <div class="concept-item">
+                            <h4>Rigid Compositions</h4>
+                            <p>Rigid + Rigid = Congruent</p>
+                            <small>Size and shape preserved</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="transformation-rules">
+                    <h3>Quick Reference: Transformation Rules</h3>
+                    <table class="rules-table">
+                        <tr>
+                            <th>Transformation</th>
+                            <th>Rule</th>
+                        </tr>
+                        <tr>
+                            <td>Translation by (a, b)</td>
+                            <td>(x, y) → (x + a, y + b)</td>
+                        </tr>
+                        <tr>
+                            <td>Reflect over x-axis</td>
+                            <td>(x, y) → (x, -y)</td>
+                        </tr>
+                        <tr>
+                            <td>Reflect over y-axis</td>
+                            <td>(x, y) → (-x, y)</td>
+                        </tr>
+                        <tr>
+                            <td>Reflect over origin</td>
+                            <td>(x, y) → (-x, -y)</td>
+                        </tr>
+                        <tr>
+                            <td>Rotate 90° CCW</td>
+                            <td>(x, y) → (-y, x)</td>
+                        </tr>
+                        <tr>
+                            <td>Rotate 180°</td>
+                            <td>(x, y) → (-x, -y)</td>
+                        </tr>
+                        <tr>
+                            <td>Rotate 90° CW</td>
+                            <td>(x, y) → (y, -x)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="printWorksheet()">Print Worksheet</button>
+                <button class="btn btn-primary" onclick="nextPhase()">Continue to Videos</button>
+            </div>
+        </div>
+
+        <!-- Phase 2: Video -->
+        <div class="content-card" id="phase2">
+            <div class="phase-header">
+                <span class="phase-number">Phase 2</span>
+                <h2>Video Lessons</h2>
+            </div>
+
+            <h3 class="video-title">Video 1: Geometric Transformations Overview</h3>
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/GqHWdTLL8Qw"
+                    title="Translations, Reflections, and Rotations"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-notes">
+                <h3>Key Points - Basic Transformations</h3>
+                <ul>
+                    <li>Translations shift graphs horizontally or vertically</li>
+                    <li>Reflections create mirror images across axes</li>
+                    <li>Rotations turn figures around a center point</li>
+                    <li>All three are rigid transformations (preserve size)</li>
+                </ul>
+            </div>
+
+            <h3 class="video-title">Video 2: Composition of Transformations</h3>
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/O2HfAFcEqcg"
+                    title="Composition of Transformations"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-notes">
+                <h3>Key Points - Compositions</h3>
+                <ul>
+                    <li>Apply transformations in sequence, one after another</li>
+                    <li>The order of transformations affects the final result</li>
+                    <li>Two reflections over parallel lines = translation</li>
+                    <li>Two reflections over intersecting lines = rotation</li>
+                </ul>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevPhase()">Back</button>
+                <button class="btn btn-primary" onclick="nextPhase()">Continue to Practice</button>
+            </div>
+        </div>
+
+        <!-- Phase 3: Guided Practice -->
+        <div class="content-card" id="phase3">
+            <div class="phase-header">
+                <span class="phase-number">Phase 3</span>
+                <h2>Guided Practice</h2>
+            </div>
+
+            <!-- Exercise 1 -->
+            <div class="exercise-container" id="exercise1">
+                <h3>Exercise 1: Translation then Reflection</h3>
+                <div class="problem-statement">
+                    <p>Point P(2, 3) undergoes the following transformations:</p>
+                    <p>1. Translate 4 units right</p>
+                    <p>2. Reflect over the x-axis</p>
+                    <p>Find the final coordinates of P''.</p>
+                </div>
+
+                <div class="step-container visible active" id="ex1-step1">
+                    <p class="step-question"><strong>Step 1:</strong> After translating P(2, 3) four units right, what is P'?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep1Ex1('wrong1')">P'(2, 7)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex1('correct')">P'(6, 3)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex1('wrong2')">P'(-2, 3)</button>
+                    </div>
+                    <div class="result-badge" id="ex1-result1"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex1-step2">
+                    <p class="step-question"><strong>Step 2:</strong> After reflecting P'(6, 3) over the x-axis, what is P''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep2Ex1('wrong1')">P''(-6, 3)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex1('correct')">P''(6, -3)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex1('wrong2')">P''(-6, -3)</button>
+                    </div>
+                    <div class="result-badge" id="ex1-result2"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex1-step3">
+                    <div class="success-message">
+                        <p><strong>Excellent!</strong> Complete sequence:</p>
+                        <p>P(2, 3) → P'(6, 3) → P''(6, -3)</p>
+                        <p>Translate right 4: add 4 to x</p>
+                        <p>Reflect over x-axis: negate y</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="completeExercise(1)">Next Exercise</button>
+                </div>
+            </div>
+
+            <!-- Exercise 2 -->
+            <div class="exercise-container" id="exercise2" style="display: none;">
+                <h3>Exercise 2: Rotation then Translation</h3>
+                <div class="problem-statement">
+                    <p>Point Q(4, 0) undergoes the following transformations:</p>
+                    <p>1. Rotate 90° counterclockwise about the origin</p>
+                    <p>2. Translate 2 units up</p>
+                    <p>Find the final coordinates of Q''.</p>
+                </div>
+
+                <div class="step-container visible active" id="ex2-step1">
+                    <p class="step-question"><strong>Step 1:</strong> Using the rule (x,y) → (-y, x), what is Q' after 90° CCW rotation?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep1Ex2('correct')">Q'(0, 4)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex2('wrong1')">Q'(0, -4)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex2('wrong2')">Q'(-4, 0)</button>
+                    </div>
+                    <div class="result-badge" id="ex2-result1"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex2-step2">
+                    <p class="step-question"><strong>Step 2:</strong> After translating Q'(0, 4) up 2 units, what is Q''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep2Ex2('wrong1')">Q''(2, 4)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex2('correct')">Q''(0, 6)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex2('wrong2')">Q''(0, 2)</button>
+                    </div>
+                    <div class="result-badge" id="ex2-result2"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex2-step3">
+                    <div class="success-message">
+                        <p><strong>Great work!</strong> Complete sequence:</p>
+                        <p>Q(4, 0) → Q'(0, 4) → Q''(0, 6)</p>
+                        <p>90° CCW: (4, 0) → (-0, 4) = (0, 4)</p>
+                        <p>Translate up 2: add 2 to y</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="completeExercise(2)">Next Exercise</button>
+                </div>
+            </div>
+
+            <!-- Exercise 3 -->
+            <div class="exercise-container" id="exercise3" style="display: none;">
+                <h3>Exercise 3: Double Reflection</h3>
+                <div class="problem-statement">
+                    <p>Point R(1, 2) undergoes two reflections:</p>
+                    <p>1. Reflect over the y-axis</p>
+                    <p>2. Reflect over the x-axis</p>
+                    <p>What single transformation gives the same result?</p>
+                </div>
+
+                <div class="step-container visible active" id="ex3-step1">
+                    <p class="step-question"><strong>Step 1:</strong> After reflecting R(1, 2) over the y-axis, what is R'?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep1Ex3('correct')">R'(-1, 2)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex3('wrong1')">R'(1, -2)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex3('wrong2')">R'(-1, -2)</button>
+                    </div>
+                    <div class="result-badge" id="ex3-result1"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex3-step2">
+                    <p class="step-question"><strong>Step 2:</strong> R'' is (-1, -2). This is the same as what single transformation from R(1, 2)?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep2Ex3('wrong1')">Translation</button>
+                        <button class="choice-btn" onclick="checkStep2Ex3('correct')">Rotation 180° (or reflection over origin)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex3('wrong2')">Reflection over y = x</button>
+                    </div>
+                    <div class="result-badge" id="ex3-result2"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex3-step3">
+                    <div class="success-message">
+                        <p><strong>Perfect!</strong> Two perpendicular reflections = 180° rotation!</p>
+                        <p>R(1, 2) → R'(-1, 2) → R''(-1, -2)</p>
+                        <p>This is equivalent to (x, y) → (-x, -y)</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="completeExercise(3)">Next Exercise</button>
+                </div>
+            </div>
+
+            <!-- Exercise 4 -->
+            <div class="exercise-container" id="exercise4" style="display: none;">
+                <h3>Exercise 4: Predict the Final Image</h3>
+                <div class="problem-statement">
+                    <p>Triangle with vertices A(0, 0), B(3, 0), C(0, 4) undergoes:</p>
+                    <p>1. Reflection over the y-axis</p>
+                    <p>2. Translation 5 units right</p>
+                    <p>Find the vertices of the final triangle.</p>
+                </div>
+
+                <div class="step-container visible active" id="ex4-step1">
+                    <p class="step-question"><strong>Step 1:</strong> After reflecting B(3, 0) over the y-axis, what is B'?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep1Ex4('correct')">B'(-3, 0)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex4('wrong1')">B'(3, 0)</button>
+                        <button class="choice-btn" onclick="checkStep1Ex4('wrong2')">B'(0, -3)</button>
+                    </div>
+                    <div class="result-badge" id="ex4-result1"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex4-step2">
+                    <p class="step-question"><strong>Step 2:</strong> After translating 5 right, what is B''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkStep2Ex4('correct')">B''(2, 0)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex4('wrong1')">B''(-8, 0)</button>
+                        <button class="choice-btn" onclick="checkStep2Ex4('wrong2')">B''(8, 0)</button>
+                    </div>
+                    <div class="result-badge" id="ex4-result2"></div>
+                </div>
+
+                <div class="step-container hidden" id="ex4-step3">
+                    <div class="success-message">
+                        <p><strong>Excellent!</strong> Final triangle vertices:</p>
+                        <p>A(0,0) → A'(0,0) → A''(5, 0)</p>
+                        <p>B(3,0) → B'(-3,0) → B''(2, 0)</p>
+                        <p>C(0,4) → C'(0,4) → C''(5, 4)</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="completeExercise(4)">Complete Guided Practice</button>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevPhase()">Back</button>
+                <button class="btn btn-primary" onclick="nextPhase()" id="phase3Next" disabled>Continue to Independent Practice</button>
+            </div>
+        </div>
+
+        <!-- Phase 4: Independent Practice -->
+        <div class="content-card" id="phase4">
+            <div class="phase-header">
+                <span class="phase-number">Phase 4</span>
+                <h2>Independent Practice</h2>
+            </div>
+
+            <div class="score-display">
+                Score: <span id="independentScore">0</span>/<span id="totalQuestions">10</span>
+            </div>
+
+            <div class="independent-problems">
+                <!-- Problem 1 -->
+                <div class="independent-problem">
+                    <p><strong>1.</strong> Point A(2, 5) is translated 3 left, then reflected over the x-axis. What is A''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(1, 'correct')">(-1, -5)</button>
+                        <button class="choice-btn" onclick="checkIndependent(1, 'wrong1')">(5, -5)</button>
+                        <button class="choice-btn" onclick="checkIndependent(1, 'wrong2')">(-1, 5)</button>
+                    </div>
+                    <span class="result-inline" id="ind1-result"></span>
+                </div>
+
+                <!-- Problem 2 -->
+                <div class="independent-problem">
+                    <p><strong>2.</strong> Point B(-3, 4) is rotated 180° about the origin, then translated 2 units up. What is B''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(2, 'wrong1')">(3, 4)</button>
+                        <button class="choice-btn" onclick="checkIndependent(2, 'correct')">(3, -2)</button>
+                        <button class="choice-btn" onclick="checkIndependent(2, 'wrong2')">(-3, -6)</button>
+                    </div>
+                    <span class="result-inline" id="ind2-result"></span>
+                </div>
+
+                <!-- Problem 3 -->
+                <div class="independent-problem">
+                    <p><strong>3.</strong> What single transformation is equivalent to reflecting over the x-axis then reflecting over the y-axis?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(3, 'wrong1')">Reflection over y = x</button>
+                        <button class="choice-btn" onclick="checkIndependent(3, 'correct')">Rotation 180°</button>
+                        <button class="choice-btn" onclick="checkIndependent(3, 'wrong2')">Translation</button>
+                    </div>
+                    <span class="result-inline" id="ind3-result"></span>
+                </div>
+
+                <!-- Problem 4 -->
+                <div class="independent-problem">
+                    <p><strong>4.</strong> Point C(0, 3) is rotated 90° CCW, then reflected over the y-axis. What is C''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(4, 'wrong1')">(-3, 0)</button>
+                        <button class="choice-btn" onclick="checkIndependent(4, 'wrong2')">(0, -3)</button>
+                        <button class="choice-btn" onclick="checkIndependent(4, 'correct')">(3, 0)</button>
+                    </div>
+                    <span class="result-inline" id="ind4-result"></span>
+                </div>
+
+                <!-- Problem 5 -->
+                <div class="independent-problem">
+                    <p><strong>5.</strong> Does the order matter when performing: Translation then Rotation vs. Rotation then Translation?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(5, 'correct')">Yes, order matters</button>
+                        <button class="choice-btn" onclick="checkIndependent(5, 'wrong1')">No, same result</button>
+                    </div>
+                    <span class="result-inline" id="ind5-result"></span>
+                </div>
+
+                <!-- Problem 6 -->
+                <div class="independent-problem">
+                    <p><strong>6.</strong> Point D(4, -2) is reflected over y = x, then translated 1 unit right. What is D''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(6, 'wrong1')">(-2, 5)</button>
+                        <button class="choice-btn" onclick="checkIndependent(6, 'correct')">(-1, 4)</button>
+                        <button class="choice-btn" onclick="checkIndependent(6, 'wrong2')">(5, -2)</button>
+                    </div>
+                    <span class="result-inline" id="ind6-result"></span>
+                </div>
+
+                <!-- Problem 7 -->
+                <div class="independent-problem">
+                    <p><strong>7.</strong> A glide reflection combines which two transformations?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(7, 'wrong1')">Rotation + Dilation</button>
+                        <button class="choice-btn" onclick="checkIndependent(7, 'correct')">Translation + Reflection</button>
+                        <button class="choice-btn" onclick="checkIndependent(7, 'wrong2')">Two rotations</button>
+                    </div>
+                    <span class="result-inline" id="ind7-result"></span>
+                </div>
+
+                <!-- Problem 8 -->
+                <div class="independent-problem">
+                    <p><strong>8.</strong> Point E(1, 1) is rotated 90° CW, then rotated 90° CW again. What is E''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(8, 'correct')">(-1, -1)</button>
+                        <button class="choice-btn" onclick="checkIndependent(8, 'wrong1')">(1, 1)</button>
+                        <button class="choice-btn" onclick="checkIndependent(8, 'wrong2')">(-1, 1)</button>
+                    </div>
+                    <span class="result-inline" id="ind8-result"></span>
+                </div>
+
+                <!-- Problem 9 -->
+                <div class="independent-problem">
+                    <p><strong>9.</strong> After two reflections over parallel lines that are 4 units apart, how far does a point move?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(9, 'wrong1')">4 units</button>
+                        <button class="choice-btn" onclick="checkIndependent(9, 'correct')">8 units</button>
+                        <button class="choice-btn" onclick="checkIndependent(9, 'wrong2')">2 units</button>
+                    </div>
+                    <span class="result-inline" id="ind9-result"></span>
+                </div>
+
+                <!-- Problem 10 -->
+                <div class="independent-problem">
+                    <p><strong>10.</strong> Point F(-2, 3) undergoes: Reflect over x-axis → Translate (4, -1). What is F''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(10, 'wrong1')">(-6, 2)</button>
+                        <button class="choice-btn" onclick="checkIndependent(10, 'wrong2')">(2, 2)</button>
+                        <button class="choice-btn" onclick="checkIndependent(10, 'correct')">(2, -4)</button>
+                    </div>
+                    <span class="result-inline" id="ind10-result"></span>
+                </div>
+            </div>
+
+            <div class="final-score" id="finalScore" style="display: none;">
+                <h3>Practice Complete!</h3>
+                <p>Your Score: <span id="finalScoreNumber"></span></p>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevPhase()">Back</button>
+                <button class="btn btn-primary" onclick="nextPhase()" id="phase4Next" disabled>View Results</button>
+            </div>
+        </div>
+
+        <!-- Phase 5: Completion -->
+        <div class="content-card" id="phase5">
+            <div class="phase-header">
+                <span class="phase-number">Phase 5</span>
+                <h2>Lesson Complete!</h2>
+            </div>
+
+            <div class="completion-content">
+                <div class="trophy-icon">🏆</div>
+                <h3>Congratulations!</h3>
+                <p>You've completed the Multiple Transformations Practice lesson.</p>
+
+                <div class="final-results">
+                    <div class="result-item">
+                        <span>Guided Practice:</span>
+                        <span>4/4 Exercises</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Independent Practice:</span>
+                        <span id="finalIndScore">0/10</span>
+                    </div>
+                    <div class="result-item total">
+                        <span>Overall Score:</span>
+                        <span id="overallScore">0/14</span>
+                    </div>
+                </div>
+
+                <div class="key-takeaways">
+                    <h4>Key Takeaways</h4>
+                    <ul>
+                        <li>Order matters in transformation sequences</li>
+                        <li>Two reflections over parallel lines = Translation (2× distance)</li>
+                        <li>Two reflections over perpendicular lines = 180° Rotation</li>
+                        <li>Glide reflection = Translation + Reflection (parallel)</li>
+                        <li>Composing rigid transformations preserves congruence</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="prevPhase()">Back</button>
+                <button class="btn btn-secondary" onclick="printResults()">Print Results</button>
+                <button class="btn btn-primary" onclick="restartLesson()">Restart Lesson</button>
+            </div>
+        </div>
+
+        <!-- Print Results Section (Hidden) -->
+        <div class="print-only" id="printResults">
+            <h1>Multiple Transformations Practice - Results</h1>
+            <h2>Independent Practice Results</h2>
+            <div id="printIndependentResults"></div>
+            <div class="print-summary">
+                <p><strong>Final Score:</strong> <span id="printFinalScore"></span></p>
+                <p><strong>Percentage:</strong> <span id="printPercentage"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
