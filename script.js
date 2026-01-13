@@ -6,7 +6,7 @@ let currentPhase = 1;
 let exercisesCompleted = 0;
 let independentScore = 0;
 let independentAnswered = 0;
-const totalIndependent = 10;
+const totalIndependent = 20;
 
 // Correct answers for independent practice
 const independentAnswers = {
@@ -19,7 +19,17 @@ const independentAnswers = {
     7: 'correct',  // Translation + Reflection
     8: 'correct',  // Two 90° CW = 180°, so (1,1) → (-1,-1)
     9: 'correct',  // 2 × 4 = 8 units
-    10: 'correct' // (-2,3) → (-2,-3) → (2,-4)
+    10: 'correct', // (-2,3) → (-2,-3) → (2,-4)
+    11: 'correct', // (5,-1) → (5,-3) → (3,5)
+    12: 'correct', // S, then R, then T (read right to left)
+    13: 'correct', // (2,6) → (6,2) → (6,-2)
+    14: 'correct', // 2 × 45° = 90° rotation
+    15: 'correct', // (-1,4) → (4,1) → (7,-1)
+    16: 'correct', // Yes, translations are commutative
+    17: 'correct', // (3,0) → (0,-3) → (-3,0)
+    18: 'correct', // y-axis then 180° = x-axis reflection
+    19: 'correct', // 90° CW then 90° CCW cancel out
+    20: 'correct'  // (0,3) → (2,3) → (2,-3)
 };
 
 // Problem descriptions for print results
@@ -33,7 +43,17 @@ const problemDescriptions = {
     7: "What two transformations make a glide reflection?",
     8: "E(1,1) rotated 90° CW twice",
     9: "Distance moved after two reflections over parallel lines 4 apart",
-    10: "F(-2,3) reflected over x-axis, then translated (4,-1)"
+    10: "F(-2,3) reflected over x-axis, then translated (4,-1)",
+    11: "G(5,-1) translated 2 down, then rotated 90° CCW",
+    12: "Order of transformations in notation T ∘ R ∘ S",
+    13: "H(2,6) reflected over y=x, then reflected over x-axis",
+    14: "Rotation produced by two reflections over lines at 45°",
+    15: "J(-1,4) rotated 270° CCW, then translated (3,-2)",
+    16: "Are two translations commutative?",
+    17: "K(3,0) reflected over y=-x, then rotated 90° CW",
+    18: "Single transformation equivalent to y-axis reflection then 180° rotation",
+    19: "L(1,-3) rotated 90° CW, then rotated 90° CCW",
+    20: "R(0,3) after glide reflection: translate 2 right, reflect over x-axis"
 };
 
 // Answer labels for printing
@@ -47,7 +67,17 @@ const answerLabels = {
     7: { wrong1: 'Rotation + Dilation', correct: 'Translation + Reflection', wrong2: 'Two rotations' },
     8: { correct: '(-1, -1)', wrong1: '(1, 1)', wrong2: '(-1, 1)' },
     9: { wrong1: '4 units', correct: '8 units', wrong2: '2 units' },
-    10: { wrong1: '(-6, 2)', wrong2: '(2, 2)', correct: '(2, -4)' }
+    10: { wrong1: '(-6, 2)', wrong2: '(2, 2)', correct: '(2, -4)' },
+    11: { correct: '(3, 5)', wrong1: '(-3, 5)', wrong2: '(5, 3)' },
+    12: { wrong1: 'T, then R, then S', correct: 'S, then R, then T', wrong2: 'R, then S, then T' },
+    13: { wrong1: '(2, -6)', correct: '(6, -2)', wrong2: '(-6, 2)' },
+    14: { wrong1: '45° rotation', correct: '90° rotation', wrong2: '180° rotation' },
+    15: { correct: '(7, -1)', wrong1: '(1, 2)', wrong2: '(-4, 1)' },
+    16: { correct: 'Yes, always the same result', wrong1: 'No, order matters' },
+    17: { wrong1: '(0, 3)', correct: '(-3, 0)', wrong2: '(3, 0)' },
+    18: { correct: 'Reflect over x-axis', wrong1: 'Reflect over y = x', wrong2: 'Rotate 90°' },
+    19: { wrong1: '(-1, 3)', wrong2: '(-3, -1)', correct: '(1, -3)' },
+    20: { wrong1: '(2, 3)', correct: '(2, -3)', wrong2: '(-2, -3)' }
 };
 
 // Track student answers for printing
@@ -305,11 +335,11 @@ function checkIndependent(problemNum, answer) {
     };
 
     if (answer === correctAnswer) {
-        result.textContent = '✓';
+        result.textContent = '✓ Correct!';
         result.style.color = '#16a34a';
         independentScore++;
     } else {
-        result.textContent = '✗';
+        result.textContent = '✗ Correct answer: ' + answerLabels[problemNum][correctAnswer];
         result.style.color = '#dc2626';
     }
 
@@ -333,7 +363,7 @@ function showFinalScore() {
 function updateFinalScores() {
     document.getElementById('finalIndScore').textContent = `${independentScore}/${totalIndependent}`;
     const overallScore = 4 + independentScore;
-    document.getElementById('overallScore').textContent = `${overallScore}/14`;
+    document.getElementById('overallScore').textContent = `${overallScore}/24`;
 }
 
 // ========== Print Functions ==========
@@ -368,9 +398,9 @@ function printResults() {
     }
 
     const overallScore = 4 + independentScore;
-    const percentage = Math.round((overallScore / 14) * 100);
+    const percentage = Math.round((overallScore / 24) * 100);
 
-    document.getElementById('printFinalScore').textContent = `${overallScore}/14`;
+    document.getElementById('printFinalScore').textContent = `${overallScore}/24`;
     document.getElementById('printPercentage').textContent = `${percentage}%`;
 
     document.body.classList.remove('printing-worksheet');

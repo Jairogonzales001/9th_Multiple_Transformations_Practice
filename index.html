@@ -113,6 +113,18 @@
                             <td>Rotate 90° CW</td>
                             <td>(x, y) → (y, -x)</td>
                         </tr>
+                        <tr>
+                            <td>Rotate 270° CCW</td>
+                            <td>(x, y) → (y, -x)</td>
+                        </tr>
+                        <tr>
+                            <td>Reflect over y = x</td>
+                            <td>(x, y) → (y, x)</td>
+                        </tr>
+                        <tr>
+                            <td>Reflect over y = -x</td>
+                            <td>(x, y) → (-y, -x)</td>
+                        </tr>
                     </table>
                 </div>
             </div>
@@ -360,7 +372,7 @@
             </div>
 
             <div class="score-display">
-                Score: <span id="independentScore">0</span>/<span id="totalQuestions">10</span>
+                Score: <span id="independentScore">0</span>/<span id="totalQuestions">20</span>
             </div>
 
             <div class="independent-problems">
@@ -472,6 +484,115 @@
                     </div>
                     <span class="result-inline" id="ind10-result"></span>
                 </div>
+
+                <!-- Problem 11 -->
+                <div class="independent-problem">
+                    <p><strong>11.</strong> Point G(5, -1) is translated 2 down, then rotated 90° CCW about the origin. What is G''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(11, 'correct')">(3, 5)</button>
+                        <button class="choice-btn" onclick="checkIndependent(11, 'wrong1')">(-3, 5)</button>
+                        <button class="choice-btn" onclick="checkIndependent(11, 'wrong2')">(5, 3)</button>
+                    </div>
+                    <span class="result-inline" id="ind11-result"></span>
+                </div>
+
+                <!-- Problem 12 -->
+                <div class="independent-problem">
+                    <p><strong>12.</strong> In the notation T ∘ R ∘ S, in what order are the transformations performed?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(12, 'wrong1')">T, then R, then S</button>
+                        <button class="choice-btn" onclick="checkIndependent(12, 'correct')">S, then R, then T</button>
+                        <button class="choice-btn" onclick="checkIndependent(12, 'wrong2')">R, then S, then T</button>
+                    </div>
+                    <span class="result-inline" id="ind12-result"></span>
+                </div>
+
+                <!-- Problem 13 -->
+                <div class="independent-problem">
+                    <p><strong>13.</strong> Point H(2, 6) is reflected over y = x, then reflected over the x-axis. What is H''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(13, 'wrong1')">(2, -6)</button>
+                        <button class="choice-btn" onclick="checkIndependent(13, 'correct')">(6, -2)</button>
+                        <button class="choice-btn" onclick="checkIndependent(13, 'wrong2')">(-6, 2)</button>
+                    </div>
+                    <span class="result-inline" id="ind13-result"></span>
+                </div>
+
+                <!-- Problem 14 -->
+                <div class="independent-problem">
+                    <p><strong>14.</strong> Two reflections over intersecting lines that meet at a 45° angle produces what rotation?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(14, 'wrong1')">45° rotation</button>
+                        <button class="choice-btn" onclick="checkIndependent(14, 'correct')">90° rotation</button>
+                        <button class="choice-btn" onclick="checkIndependent(14, 'wrong2')">180° rotation</button>
+                    </div>
+                    <span class="result-inline" id="ind14-result"></span>
+                </div>
+
+                <!-- Problem 15 -->
+                <div class="independent-problem">
+                    <p><strong>15.</strong> Point J(-1, 4) undergoes: Rotate 270° CCW → Translate (3, -2). What is J''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(15, 'correct')">(7, -1)</button>
+                        <button class="choice-btn" onclick="checkIndependent(15, 'wrong1')">(1, 2)</button>
+                        <button class="choice-btn" onclick="checkIndependent(15, 'wrong2')">(-4, 1)</button>
+                    </div>
+                    <span class="result-inline" id="ind15-result"></span>
+                </div>
+
+                <!-- Problem 16 -->
+                <div class="independent-problem">
+                    <p><strong>16.</strong> Are two translations always commutative (can you perform them in any order and get the same result)?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(16, 'correct')">Yes, always the same result</button>
+                        <button class="choice-btn" onclick="checkIndependent(16, 'wrong1')">No, order matters</button>
+                    </div>
+                    <span class="result-inline" id="ind16-result"></span>
+                </div>
+
+                <!-- Problem 17 -->
+                <div class="independent-problem">
+                    <p><strong>17.</strong> Point K(3, 0) is reflected over y = -x, then rotated 90° CW. What is K''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(17, 'wrong1')">(0, 3)</button>
+                        <button class="choice-btn" onclick="checkIndependent(17, 'correct')">(-3, 0)</button>
+                        <button class="choice-btn" onclick="checkIndependent(17, 'wrong2')">(3, 0)</button>
+                    </div>
+                    <span class="result-inline" id="ind17-result"></span>
+                </div>
+
+                <!-- Problem 18 -->
+                <div class="independent-problem">
+                    <p><strong>18.</strong> After reflecting over the y-axis then rotating 180°, which single transformation gives the same result?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(18, 'correct')">Reflect over x-axis</button>
+                        <button class="choice-btn" onclick="checkIndependent(18, 'wrong1')">Reflect over y = x</button>
+                        <button class="choice-btn" onclick="checkIndependent(18, 'wrong2')">Rotate 90°</button>
+                    </div>
+                    <span class="result-inline" id="ind18-result"></span>
+                </div>
+
+                <!-- Problem 19 -->
+                <div class="independent-problem">
+                    <p><strong>19.</strong> Point L(1, -3) is rotated 90° CW, then rotated 90° CCW. What is L''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(19, 'wrong1')">(-1, 3)</button>
+                        <button class="choice-btn" onclick="checkIndependent(19, 'wrong2')">(-3, -1)</button>
+                        <button class="choice-btn" onclick="checkIndependent(19, 'correct')">(1, -3)</button>
+                    </div>
+                    <span class="result-inline" id="ind19-result"></span>
+                </div>
+
+                <!-- Problem 20 -->
+                <div class="independent-problem">
+                    <p><strong>20.</strong> Triangle PQR has vertex R(0, 3). After a glide reflection (translate 2 right, then reflect over x-axis), what is R''?</p>
+                    <div class="choices">
+                        <button class="choice-btn" onclick="checkIndependent(20, 'wrong1')">(2, 3)</button>
+                        <button class="choice-btn" onclick="checkIndependent(20, 'correct')">(2, -3)</button>
+                        <button class="choice-btn" onclick="checkIndependent(20, 'wrong2')">(-2, -3)</button>
+                    </div>
+                    <span class="result-inline" id="ind20-result"></span>
+                </div>
             </div>
 
             <div class="final-score" id="finalScore" style="display: none;">
@@ -504,22 +625,24 @@
                     </div>
                     <div class="result-item">
                         <span>Independent Practice:</span>
-                        <span id="finalIndScore">0/10</span>
+                        <span id="finalIndScore">0/20</span>
                     </div>
                     <div class="result-item total">
                         <span>Overall Score:</span>
-                        <span id="overallScore">0/14</span>
+                        <span id="overallScore">0/24</span>
                     </div>
                 </div>
 
                 <div class="key-takeaways">
                     <h4>Key Takeaways</h4>
                     <ul>
-                        <li>Order matters in transformation sequences</li>
+                        <li>Order matters in transformation sequences (except translations with translations)</li>
                         <li>Two reflections over parallel lines = Translation (2× distance)</li>
+                        <li>Two reflections over intersecting lines = Rotation (2× the angle between lines)</li>
                         <li>Two reflections over perpendicular lines = 180° Rotation</li>
                         <li>Glide reflection = Translation + Reflection (parallel)</li>
                         <li>Composing rigid transformations preserves congruence</li>
+                        <li>Notation: T ∘ R means "R then T" (read right to left)</li>
                     </ul>
                 </div>
             </div>
